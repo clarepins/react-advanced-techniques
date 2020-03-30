@@ -1,8 +1,11 @@
 import React, { useState, Fragment } from "react";
+import useDocumentTitle from "./useDocumentTitle";
 
 function Counter(props) {
-  const [count, setState] = useState(0);
+  const [count, setCount] = useState(0);
   const [name, setName] = useState("");
+
+  useDocumentTitle(`${name} clicked ${count} times!`);
 
   return (
     <Fragment>
@@ -10,7 +13,7 @@ function Counter(props) {
       <div>
         {name} clicked {count} times!
       </div>
-      <button onClick={() => setState(count + 1)}>Increase</button>
+      <button onClick={() => setCount(count + 1)}>Increase</button>
     </Fragment>
   );
 }
